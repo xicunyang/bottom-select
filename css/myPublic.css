@@ -1,0 +1,149 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none
+}
+body{
+	padding: 0;
+	margin: 0;
+}
+.mt-select{
+	position: fixed;
+	height: 300px;
+	width:100%;
+	max-height: 400px;
+	bottom: -300px;
+	z-index: 11;
+	background-color: white;
+}
+.select_box {
+	/*伸缩布局*/
+	display: flex;
+	position: absolute;
+	width:100%;	
+	height: 250px;
+	bottom:0;
+}
+
+.select_box .select_box_item {
+	display: flex;
+	height: 100%;
+	flex: 1;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	background-color: white;
+	border: 1px solid rgba(100,100,100,0.1);
+}
+
+
+/* 字体大小 */
+.select_box_item {
+	font-size: 20px;
+}
+
+/* 打开时候的动画 */
+.open{
+	visibility: visible;
+}
+.open_ani{
+	animation: fadeInUp .3s ease-out;
+	animation-fill-mode: forwards
+}
+/* 遮罩层 */
+.click_no_panel {
+	width:100%;
+	height: 100%;
+	background-color:rgba(100,100,100,0.2);
+	position: absolute;
+	z-index: 10;
+}
+
+/* 确定-取消按钮 - 样式*/
+.select-btn{
+	height: 50px;
+	width: 100%;
+}
+.select-btn button{
+	position: absolute;
+	width:50px;
+	height: 30px;
+	font-size: 15px;
+	background-color: white;
+	border: 0px;
+	border-radius: 5px;
+}
+.select-btn button:active{
+	background-color: rgba(100,100,100,0.2);
+	color:white;
+}
+.select-btn .btn-cancel{
+	left: 10px;
+}
+.select-btn .btn-cancel,.select-btn .btn-submit{
+	top:10px;
+}
+.select-btn .btn-submit{
+	right: 10px;
+}
+
+/* 滑动 - 效果 */
+.swiper-container,
+.selectData {
+	height: 250px;
+}
+
+.swiper-slide {
+	height: .7rem;
+	line-height: .7rem;
+	font-size: .4rem;
+	color: #ccc;
+	overflow: hidden;
+	
+	text-align: center;
+}
+
+.swiper-slide:first-child {
+	color: #b7babf
+}
+
+.swiper-slide-prev,
+.swiper-slide-next {
+	font-size: .4rem;
+}
+
+.swiper-slide-active {
+	font-size: .4rem;
+	color: #191919
+}
+
+/* 选中行样式 */
+.cloth {
+	position: absolute;
+	height: .625rem;
+	top: 110px;
+	left: 0;
+	right: 0;
+	background-color: rgba(100, 100, 100, .03)
+}
+/* 模拟更新数据 */
+.updateData{
+	position: absolute;
+	z-index: 10000;	
+}
+
+@keyframes fadeInUp {
+	0% {
+		bottom: -300px;
+	}
+	85% {
+		bottom: 10px;
+	}
+	100% {
+		bottom: 0;
+	}
+}
